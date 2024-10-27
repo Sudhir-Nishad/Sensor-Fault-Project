@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wafer Fault Detection</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=VT323&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+<form action="/predict" method="post" enctype="multipart/form-data">
+    <h1 class="title">Sensor Fault Detection Project</h1>
+    <div class="frame">
+        <div class="center">
+            <div class="title_">
+                <h1>Drop or upload file</h1>
+            </div>
+            <div class="dropzone">
+                <img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon" />
+                <input type="file" class="upload-input" name="file" accept=".csv" onchange="enableButton()">
+            </div>
+            <button type="submit" class="btn" name="uploadbutton" id="submitBtn" disabled>Get Prediction file</button>
+        </div>
+    </div>
+</form>
+
+<script>
+  function enableButton() {
+    const submitBtn = document.getElementById('submitBtn');
+    const fileInput = document.querySelector('.upload-input');
+    if (fileInput.files.length > 0) {
+      submitBtn.disabled = false;
+      submitBtn.classList.add('active');
+    } else {
+      submitBtn.disabled = true;
+      submitBtn.classList.remove('active');
+    }
+  }
+</script>
+<script src='https://100dayscss.com/codepen/js/jquery.min.js'></script>
+  <script  src="./script.js"></script>
+</body>
+</html>
